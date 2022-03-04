@@ -1,0 +1,45 @@
+// Andreea Prigoreanu 321CA    
+
+    Am mutat structurile File si Dir, precum si semnaturile functiilor asociate
+in fisierul Structures.h, iar implementarile functiilor le-am realizat in
+fisierul Strucutres.c .
+	Pe langa functiile deja definite in scheletul temei, am adaugat:
+    - create_file: aloca memoria pentru o structura de tip File si pentru
+            campurile ei
+    - free_file: elibereaza memoria ocupata de o structura de tip File
+    - create_dir: aloca memorie pentru o strucutra de tip Dir si pentru
+            campurile ei
+    - free_dir: aloca memoria ocupata de fisierele din cadrul unui director si
+            structura in sine
+    - free_dir_recursive: prin apeluri recursive, elibereaza memoria ocupata de
+            toate directoarele care se afla in directorul dat ca parametru
+    - build_path: contruieste recursiv un sir de caractere ce contine calea
+            de la directorul home la directorul dat ca parametru
+
+	Functiile care lucreaza cu sistemul de fisiere sunt:
+	- touch: creeaza un fisier folosind functia create_file si parcurge lista
+	de fisiere din directorul parinte pentru a-l insera la final
+	- mkdir: creeaza un director folosind functia create_dir si parcurge lista
+	de directoare din directorul parinte pentru a-l insera la final
+	- ls: parcurge lista de directoare si, apoi, lista de fisiere pentru a
+	afisa tot ce se gaseste in directorul dat
+    - rm: cauta fisierul dat in lista de fisiere si apeleaza functia free_file
+	pentru a-l sterge
+    - rmdir: cauta directorul dat in lista de directoare si apeleaza functia 
+	free_dir_recursive pentru a-l sterge pe el si toate directoarele si
+	fisierele pe care le contine
+	- cd: actualizeaza directorul target curent cu directorul parinte al
+	acestuia daca primeste ca nume ".." sau cauta in lista de directoare a
+	directorului target curent directorul cu numele dat
+	- tree: apeleaza functia build_path pentru a construi calea
+    - pwd: functia afiseaza recursiv calea de la directorul home la directorul
+	dat
+    - stop: dezaloca memoria alocata dinamic in program
+	- mv: verifica daca unfisier cu numele newname exista deja, iar daca nu
+	exista parcurge lista de fisiere si lista de directoare pentru a gasi
+	fisierul sau directotrul cu numele oldname si pentru a face modificarile
+	necesare
+
+    
+	In cadrul functiei main am citit pe rand fiecare linie de la stdin folosind
+fscanf. Dupa caz, am spart linia in comanda si nume folosind sscanf.
